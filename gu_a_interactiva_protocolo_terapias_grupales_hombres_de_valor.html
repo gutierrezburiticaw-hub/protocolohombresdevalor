@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocolo Terapias Grupales — Hombres de Valor (Guía Interactiva)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Lora"', 'serif'],
+          },
+          colors: {
+            forest: {
+              950: '#101c18',
+              900: '#172923',
+              800: '#1f3a31',
+              700: '#275445',
+              600: '#2d6a4f',
+              100: '#e6f2ec',
+              50: '#f3f9f6',
+            },
+            sand: {
+              50: '#faf8f5',
+              100: '#f3efe6',
+              200: '#e6dfd1',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #faf8f5;
+      color: #1c1917;
+      scroll-behavior: smooth;
+    }
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .accordion-content.open {
+      grid-template-rows: 1fr;
+    }
+    .accordion-inner {
+      overflow: hidden;
+    }
+    .chevron-icon {
+      transition: transform 0.28s ease;
+    }
+    .session-card.is-open .chevron-icon {
+      transform: rotate(180deg);
+    }
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f3efe6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-forest-600 selection:text-white">
+
+  <!-- Barra Superior Institucional -->
+  <header class="bg-forest-950 text-sand-50 border-b border-forest-800 sticky top-0 z-40 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 shrink-0">
+          <i class="fa-solid fa-seedling text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-[11px] font-bold uppercase tracking-widest text-amber-400">Doc 1.1 • Versión 1.1</span>
+            <span class="text-forest-700">•</span>
+            <span class="text-[11px] font-medium text-stone-300">Institución de Restauración Integral</span>
+          </div>
+          <h1 class="font-serif text-lg sm:text-xl font-bold text-white leading-tight">
+            Hombres de Valor — Protocolo Terapias Grupales
+          </h1>
+        </div>
+      </div>
+
+      <!-- Indicador de Progreso del Facilitador -->
+      <div class="flex items-center gap-3 bg-forest-900/90 border border-forest-800 px-3.5 py-2 rounded-xl self-start md:self-auto">
+        <div class="text-right">
+          <p class="text-[11px] uppercase tracking-wider text-stone-400 font-semibold">Sesiones revisadas</p>
+          <p class="text-sm font-bold text-white"><span id="progressCount">0</span> de 44 encuentros</p>
+        </div>
+        <div class="w-24 h-2.5 bg-forest-950 rounded-full overflow-hidden border border-forest-800">
+          <div id="progressBar" class="h-full bg-amber-400 transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Resumen Ejecutivo y Normativa Obligatoria -->
+  <section class="bg-gradient-to-b from-forest-900 to-forest-950 text-sand-50 border-b border-forest-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-300 border border-amber-400/30 mb-3">
+          <i class="fa-solid fa-book-medical"></i> Manual Operativo para Psicólogos en Formación y Terapeutas
+        </span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-white leading-tight">
+          Guía Interactiva de los 44 Encuentros Terapéuticos
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-stone-300 leading-relaxed">
+          Haz clic sobre cualquier encuentro para desplegar su ficha clínica completa: <strong>qué se busca</strong>, <strong>qué toca hacer en sesión</strong>, <strong>significados clave</strong>, <strong>documentos o tareas</strong> y <strong>consejos prácticos</strong> para el manejo grupal.
+        </p>
+      </div>
+
+      <!-- Acordeón de Lineamientos Permanentes (Página 1 del Protocolo) -->
+      <div class="mt-6 bg-forest-900/80 border border-forest-700/80 rounded-2xl overflow-hidden shadow-lg">
+        <button
+          id="toggleGuidelinesBtn"
+          type="button"
+          class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-forest-800/60 transition-colors"
+          aria-expanded="false"
+        >
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-shield-halved"></i>
+            </span>
+            <div>
+              <h3 class="font-bold text-white text-sm sm:text-base">
+                Lineamientos Obligatorios en Cada Sesión y Rúbrica de Calificación
+              </h3>
+              <p class="text-xs text-stone-300">
+                Revisión de diarios terapéuticos, inclusión sin excepciones, confidencialidad institucional y porcentajes de evaluación
+              </p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-2 text-xs font-bold text-amber-300 bg-forest-950/70 px-3 py-1.5 rounded-lg border border-forest-700 shrink-0 ml-2">
+            <span id="guidelinesBtnText">Ver normativa</span>
+            <i id="guidelinesChevron" class="fa-solid fa-chevron-down transition-transform duration-200"></i>
+          </span>
+        </button>
+
+        <div id="guidelinesPanel" class="accordion-content">
+          <div class="accordion-inner">
+            <div class="p-5 sm:p-6 pt-2 border-t border-forest-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="bg-forest-950/80 border border-forest-800 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-book-open"></i> 1. Revisión en Cada Sesión
+                </div>
+                <p class="text-sm text-stone-200 leading-relaxed">
+                  En cada sesión se debe leer y revisar los <strong>diarios terapéuticos</strong> y el <strong>cuadro de logros, dificultades y alternativas</strong> (verificando especialmente los días que no se hayan revisado antes).
+                </p>
+              </div>
+
+              <div class="bg-forest-950/80 border border-forest-800 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-sky-400 font-bold text-xs uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-users"></i> 2. Inclusión Sin Excepciones
+                </div>
+                <p class="text-sm text-stone-200 leading-relaxed">
+                  Todos los grupos inician con todos los psicólogos en formación, quienes se dividen según los nuevos ingresos. Se debe garantizar el ingreso a todos los usuarios, <strong>aún líderes, coordinadores, rancheros, etc.</strong>
+                </p>
+              </div>
+
+              <div class="bg-forest-950/80 border border-amber-500/40 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-lock"></i> 3. Confidencialidad Legal
+                </div>
+                <p class="text-sm text-stone-200 leading-relaxed">
+                  La información en computadores, pruebas psicométricas y formatos es propiedad exclusiva de la <strong>Fundación Centro de Restauración Hombres de Valor</strong>. Cualquier copia no autorizada acarrea sanciones disciplinarias y pérdida de prácticas.
+                </p>
+              </div>
+
+              <div class="bg-forest-950/80 border border-forest-800 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-award"></i> 4. Calificación por Fase (5.0)
+                </div>
+                <ul class="text-sm text-stone-200 space-y-1">
+                  <li class="flex justify-between"><span>• Asistencia:</span> <strong class="text-white">1.0</strong></li>
+                  <li class="flex justify-between"><span>• Tareas y entregables:</span> <strong class="text-white">3.0</strong></li>
+                  <li class="flex justify-between"><span>• Participación y disposición:</span> <strong class="text-white">1.0</strong></li>
+                </ul>
+                <p class="text-[11px] text-stone-400 mt-2">
+                  *Entregar nota al terapeuta de escenario 2 antes del encuentro pactado (Enc. 20, 36 y 43).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Barra de Controles: Filtros de Fase, Búsqueda y Acciones Rápidas -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div class="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 shadow-sm mb-6 space-y-4">
+      <!-- Pestañas de Fases -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar por fase terapéutica">
+          <button type="button" data-phase="all" class="phase-tab active px-4 py-2.5 rounded-xl text-sm font-bold transition-all bg-forest-900 text-white shadow-sm">
+            Todas las Fases <span class="ml-1 text-xs opacity-80">(44)</span>
+          </button>
+          <button type="button" data-phase="1" class="phase-tab px-4 py-2.5 rounded-xl text-sm font-bold transition-all bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-800">
+            <i class="fa-solid fa-seedling mr-1.5 text-emerald-600"></i>Fase 1: Semillas <span class="ml-1 text-xs opacity-75">(1–20)</span>
+          </button>
+          <button type="button" data-phase="2" class="phase-tab px-4 py-2.5 rounded-xl text-sm font-bold transition-all bg-stone-100 text-stone-700 hover:bg-blue-50 hover:text-blue-800">
+            <i class="fa-solid fa-layer-group mr-1.5 text-blue-600"></i>Fase 2: Consolidación <span class="ml-1 text-xs opacity-75">(21–36)</span>
+          </button>
+          <button type="button" data-phase="3" class="phase-tab px-4 py-2.5 rounded-xl text-sm font-bold transition-all bg-stone-100 text-stone-700 hover:bg-orange-50 hover:text-orange-800">
+            <i class="fa-solid fa-compass mr-1.5 text-orange-600"></i>Fase 3: Proyección <span class="ml-1 text-xs opacity-75">(37–44)</span>
+          </button>
+        </div>
+
+        <!-- Botones Expandir / Contraer Todo -->
+        <div class="flex items-center gap-2">
+          <button id="expandAllBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-sand-100 text-stone-700 hover:bg-sand-200 transition-colors">
+            <i class="fa-solid fa-angles-down mr-1"></i> Desplegar visibles
+          </button>
+          <button id="collapseAllBtn" type="button" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-sand-100 text-stone-700 hover:bg-sand-200 transition-colors">
+            <i class="fa-solid fa-angles-up mr-1"></i> Contraer todo
+          </button>
+        </div>
+      </div>
+
+      <!-- Buscador y Filtros de Tipo -->
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between pt-3 border-t border-stone-100">
+        <div class="relative flex-1">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Buscar por número (ej. 18), tema (silla vacía, disparadores, culpa, árbol, entrevista)..."
+            class="w-full pl-10 pr-9 py-2.5 bg-sand-50 border border-stone-200 rounded-xl text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:bg-white transition-all"
+          />
+          <button id="clearSearchBtn" type="button" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600" title="Limpiar búsqueda">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-tag="all" class="tag-filter active px-3 py-2 rounded-lg text-xs font-semibold bg-stone-800 text-white">
+            Todos
+          </button>
+          <button type="button" data-tag="tarea" class="tag-filter px-3 py-2 rounded-lg text-xs font-semibold bg-stone-100 text-stone-600 hover:bg-amber-100 hover:text-amber-900">
+            <i class="fa-solid fa-pen-to-square mr-1"></i> Con Tarea
+          </button>
+          <button type="button" data-tag="documento" class="tag-filter px-3 py-2 rounded-lg text-xs font-semibold bg-stone-100 text-stone-600 hover:bg-indigo-100 hover:text-indigo-900">
+            <i class="fa-solid fa-file-lines mr-1"></i> Con Documento/Formato
+          </button>
+          <button type="button" data-tag="evaluacion" class="tag-filter px-3 py-2 rounded-lg text-xs font-semibold bg-stone-100 text-stone-600 hover:bg-rose-100 hover:text-rose-900">
+            <i class="fa-solid fa-clipboard-check mr-1"></i> Evaluación / Notas
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner Descriptivo de la Fase Seleccionada -->
+    <div id="phaseBanner" class="mb-6 rounded-2xl p-5 border flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border-stone-200">
+      <div>
+        <span id="phaseBannerBadge" class="text-xs font-extrabold uppercase tracking-wider text-forest-700">Programa Completo</span>
+        <h2 id="phaseBannerTitle" class="font-serif text-xl sm:text-2xl font-bold text-stone-900 mt-0.5">
+          Las 3 Fases del Proceso Terapéutico Grupal
+        </h2>
+        <p id="phaseBannerDesc" class="text-sm text-stone-600 mt-1">
+          Desde el despertar de la conciencia en <strong>Semillas</strong>, pasando por la regulación emocional y vincular en <strong>Consolidación</strong>, hasta la reinserción y proyecto de vida en <strong>Proyección</strong>.
+        </p>
+      </div>
+      <div class="shrink-0 bg-sand-100 px-4 py-2.5 rounded-xl border border-sand-200 text-center">
+        <span class="block text-xs text-stone-500 font-semibold">Mostrando</span>
+        <span id="visibleCount" class="text-lg font-extrabold text-stone-900">44 sesiones</span>
+      </div>
+    </div>
+
+    <!-- Contenedor Principal de Sesiones -->
+    <div id="sessionsContainer" class="space-y-3.5"></div>
+
+    <!-- Estado Vacío si no hay resultados -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-stone-200">
+      <div class="w-14 h-14 rounded-2xl bg-sand-100 text-stone-400 flex items-center justify-center mx-auto mb-3 text-2xl">
+        <i class="fa-solid fa-folder-open"></i>
+      </div>
+      <h3 class="font-serif text-lg font-bold text-stone-800">No se encontraron encuentros con ese filtro</h3>
+      <p class="text-sm text-stone-500 mt-1 max-w-md mx-auto">
+        Intenta buscar con otra palabra clave (por ejemplo: <em>cine foro</em>, <em>disparadores</em>, <em>silla vacía</em> o <em>árbol</em>) o restablece los filtros.
+      </p>
+      <button id="resetFiltersBtn" type="button" class="mt-4 px-4 py-2 rounded-xl bg-forest-700 text-white text-sm font-bold hover:bg-forest-800 transition-colors">
+        Mostrar todas las sesiones
+      </button>
+    </div>
+  </main>
+
+  <!-- Modal de Ficha Clínica en Pantalla Completa (Modo Estudio / Proyección en Grupo) -->
+  <div id="focusModal" class="fixed inset-0 z-50 hidden bg-stone-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+    <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden">
+      <div id="modalHeader" class="px-6 py-4 bg-forest-900 text-white flex items-center justify-between gap-4">
+        <div>
+          <span id="modalPhaseTag" class="text-xs font-bold uppercase tracking-wider text-amber-300">Fase 1: Semillas</span>
+          <h3 id="modalTitle" class="font-serif text-xl sm:text-2xl font-bold mt-0.5">Encuentro 1: Presentación</h3>
+        </div>
+        <button id="closeModalBtn" type="button" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" aria-label="Cerrar ficha">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div id="modalBody" class="p-6 overflow-y-auto space-y-5 bg-sand-50"></div>
+      <div class="px-6 py-3.5 bg-white border-t border-stone-200 flex items-center justify-between gap-3">
+        <button id="modalPrevBtn" type="button" class="px-4 py-2 rounded-xl text-sm font-bold bg-stone-100 text-stone-700 hover:bg-stone-200 transition-colors">
+          <i class="fa-solid fa-arrow-left mr-1.5"></i> Anterior
+        </button>
+        <span id="modalCounter" class="text-xs font-bold text-stone-500">Sesión 1 de 44</span>
+        <button id="modalNextBtn" type="button" class="px-4 py-2 rounded-xl text-sm font-bold bg-forest-700 text-white hover:bg-forest-800 transition-colors">
+          Siguiente <i class="fa-solid fa-arrow-right ml-1.5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de Página -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-8 border-t border-stone-200 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+    <div>
+      <strong class="text-stone-700">Fundación Centro de Restauración Hombres de Valor</strong> • Protocolo Terapias Grupales (Doc 1.1 / Ver 1.1)
+    </div>
+    <div>
+      Uso exclusivo para fines formativos y terapéuticos dentro de la institución.
+    </div>
+  </footer>
+
+  <script>
+    // Base de datos completa de los 44 encuentros del protocolo Hombres de Valor
+    const SESSIONS_DATA = [
+      // ==================== FASE 1: SEMILLAS (1 - 20) ====================
+      {
+        id: 1,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Presentación y Encuadre Grupal",
+        subtitle: "Actividad rompe hielo, modelo de tratamiento y reglas de calificación",
+        tags: ["evaluacion"],
+        objective: "Romper las barreras de desconfianza inicial, generar cohesión grupal y establecer con claridad las normas, temáticas y criterios de evaluación del proceso terapéutico.",
+        activities: [
+          "Realizar la presentación formal del equipo terapéutico (psicólogos en formación) y de cada uno de los usuarios.",
+          "Ejecutar una <strong>actividad rompe hielo</strong> participativa para distensionar el ambiente.",
+          "Explicar detalladamente en qué consiste el <strong>modelo de tratamiento grupal</strong> de la institución.",
+          "Socializar los temas que se abordarán durante la Fase 1 y el <strong>modelo de calificación</strong> (1.0 asistencia, 3.0 tareas y entregables, 1.0 participación y disposición)."
+        ],
+        meanings: "El <strong>encuadre terapéutico</strong> delimita un espacio seguro, confidencial y estructurado donde todos los usuarios participan como iguales, sin jerarquías internas.",
+        deliverables: "Socialización del sistema de evaluación de fase. Recordatorio obligatorio de llevar al día el <em>Diario Terapéutico</em> y el <em>Cuadro de logros, dificultades y alternativas</em>.",
+        tips: [
+          "Asegúrate desde esta primera sesión de integrar a líderes, coordinadores y rancheros en igualdad de condiciones.",
+          "Deja claro que la nota más alta corresponde a Tareas y Entregables (3.0), motivando la disciplina escrita desde el primer día."
+        ]
+      },
+      {
+        id: 2,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Identidad",
+        subtitle: "Conversatorio sobre lo que nos identifica como seres individuales",
+        tags: [],
+        objective: "Ayudar al consultante a reconocerse más allá de las etiquetas asociadas al consumo o a la calle, rescatando su valor, historia y singularidad humana.",
+        activities: [
+          "Abrir un <strong>conversatorio grupal guiado</strong> centrado en la pregunta: <em>¿Qué nos identifica como seres individuales?</em>",
+          "Explorar cualidades personales, gustos sanos, talentos, historia de vida y rasgos propios que diferencian a cada integrante.",
+          "Revisar los diarios terapéuticos y el cuadro de logros, dificultades y alternativas antes o durante el cierre."
+        ],
+        meanings: "La <strong>identidad personal</strong> es el núcleo de quién es cada hombre cuando se retira la sustancia; reconstruirla es el primer paso para recuperar la dignidad.",
+        deliverables: "Reflexión escrita en el diario terapéutico sobre tres rasgos positivos de su identidad.",
+        tips: [
+          "Si un usuario se define diciendo 'yo soy un adicto' o 'yo soy un problema', reencuadra con respeto: 'El consumo fue una conducta, pero ¿quién eres tú como ser humano?'",
+          "Fomenta la escucha respetuosa sin burlas ni apodos entre compañeros."
+        ]
+      },
+      {
+        id: 3,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Aceptación",
+        subtitle: "Lectura y discusión del documento Word sobre Aceptación",
+        tags: ["documento"],
+        objective: "Superar los mecanismos de negación, minimización o culpa externa, logrando que el usuario reconozca su realidad actual para poder transformarla.",
+        activities: [
+          "Realizar la lectura grupal en voz alta del documento institucional Word titulado <strong>'ACEPTACIÓN'</strong>.",
+          "Abrir un espacio de discusión y análisis participativo con los consultantes sobre el mensaje del texto.",
+          "Conectar los conceptos de la lectura con la decisión personal de estar en proceso de restauración."
+        ],
+        meanings: "<strong>Aceptar</strong> no significa resignarse ni rendirse; significa dejar de pelear contra la realidad de la adicción y asumir la responsabilidad activa de pedir ayuda.",
+        deliverables: "Documento institucional: <strong>Word 'ACEPTACIÓN'</strong>.",
+        tips: [
+          "Turna la lectura entre varios pacientes para mantener la atención activa del grupo.",
+          "Pregunta qué frase del texto les costó más trabajo aceptar en el pasado y por qué."
+        ]
+      },
+      {
+        id: 4,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Máscaras",
+        subtitle: "Clase magistral sobre personalidad y fachadas defensivas",
+        tags: [],
+        objective: "Comprender cómo se estructura la personalidad y detectar las 'máscaras' o roles artificiales utilizados para ocultar miedo, inseguridad o heridas emocionales.",
+        activities: [
+          "Impartir una <strong>clase magistral sobre personalidad</strong> explicando temperamento, carácter y mecanismos de defensa.",
+          "Analizar el concepto de las <strong>máscaras sociales</strong> (el rudo, el payaso, el indiferente, el manipulador) y su función en la vida de consumo.",
+          "Invitar a los usuarios a identificar qué máscara suelen ponerse dentro de la convivencia diaria."
+        ],
+        meanings: "Las <strong>máscaras</strong> son armaduras psicológicas creadas para sobrevivir o encajar, pero impiden establecer vínculos honestos y pedir ayuda real.",
+        deliverables: "Registro en el cuadro de logros, dificultades y alternativas sobre una máscara personal a trabajar.",
+        tips: [
+          "Utiliza ejemplos cotidianos y lenguaje claro, evitando tecnicismos académicos excesivos.",
+          "Valida el valor que requiere quitarse la máscara frente al grupo terapéutico."
+        ]
+      },
+      {
+        id: 5,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Cine Foro — Proyección de Película",
+        subtitle: "Aprendizaje vicario a través del cine sin spoilers entre cohortes",
+        tags: [],
+        objective: "Observar de manera crítica y externa el ciclo de la adicción, la ambición desmedida, el engaño y las consecuencias destructivas en la vida humana.",
+        activities: [
+          "Proyectar al grupo <strong>una</strong> de las 5 películas autorizadas en el protocolo:<br>• <em>El precio del poder</em> (1983)<br>• <em>Réquiem por un sueño</em> (2000)<br>• <em>El lobo de Wall Street</em> (2013)<br>• <em>El buscavidas</em><br>• <em>Trainspotting</em> (1996)",
+          "Garantizar estrictamente que la película elegida sea <strong>distinta a la de grupos anteriores</strong> para evitar <em>spoilers</em> entre usuarios."
+        ],
+        meanings: "El <strong>cine foro terapéutico</strong> permite que el paciente se vea reflejado a distancia en los personajes, reduciendo sus defensas psicológicas.",
+        deliverables: "Toma de apuntes personales durante la película para la evaluación del Encuentro 6.",
+        tips: [
+          "Verifica en la bitácora del equipo qué película vio el grupo anterior antes de iniciar la proyección.",
+          "Advierte al grupo que en la próxima sesión habrá una evaluación puntual sobre los hechos del film."
+        ]
+      },
+      {
+        id: 6,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Cine Foro — Evaluación y Conversatorio",
+        subtitle: "Evaluación objetiva (sin preguntas abiertas) y debate de aprendizaje",
+        tags: ["evaluacion"],
+        objective: "Extraer aprendizajes clínicos concretos sobre las decisiones, pérdidas y consecuencias observadas en la película proyectada.",
+        activities: [
+          "Aplicar en primer lugar una <strong>pequeña evaluación escrita</strong> de la película escogida, <strong>evitando las preguntas de respuesta abierta</strong> (usar selección múltiple, falso/verdadero o relación de conceptos).",
+          "Acto seguido, dirigir un <strong>conversatorio grupal</strong> para profundizar en el mensaje moral y terapéutico del film."
+        ],
+        meanings: "La <strong>evaluación cerrada previa</strong> asegura atención real y comprensión objetiva de la trama antes de pasar a la reflexión subjetiva.",
+        deliverables: "Prueba corta evaluable (aporta a la nota de Tareas y Entregables).",
+        tips: [
+          "Prepara el cuestionario corto con anticipación para que tome máximo 10–15 minutos y deje suficiente tiempo para el conversatorio.",
+          "Orienta el debate hacia el desenlace de los personajes y cómo las pequeñas concesiones llevan a grandes pérdidas."
+        ]
+      },
+      {
+        id: 7,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Pérdidas y Fracasos",
+        subtitle: "Socialización del costo real de las acciones negativas",
+        tags: [],
+        objective: "Confrontar con honestidad el impacto tangible que el consumo y las conductas destructivas han ocasionado en todas las áreas de la vida.",
+        activities: [
+          "Socializar en grupo <strong>qué han perdido</strong> por consecuencia de sus acciones negativas (familia, confianza, libertad, salud, estudios, bienes, dignidad).",
+          "Compartir cuáles han sido los <strong>fracasos más grandes</strong> que han experimentado a raíz de estas conductas."
+        ],
+        meanings: "Reconocer las <strong>pérdidas reales</strong> rompe la fantasía de que el consumo 'no le hace daño a nadie' y despierta la conciencia de cambio.",
+        deliverables: "Inventario personal de pérdidas y aprendizajes en el diario terapéutico.",
+        tips: [
+          "Mantén un ambiente de contención emocional; si un paciente se quiebra al hablar de su familia, acompaña desde la empatía sin juzgar.",
+          "Evita que el ejercicio se vuelva una competencia de 'quién perdió más'; enfócalo en no volver a perder lo que hoy están recuperando."
+        ]
+      },
+      {
+        id: 8,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Razones para Consumir (Exploración)",
+        subtitle: "Identificación de causas del consumo y tarea de alternativas",
+        tags: ["tarea"],
+        objective: "Comprender qué necesidades emocionales, vacíos o detonantes llevaron al usuario a iniciar y sostener el consumo o las conductas negativas.",
+        activities: [
+          "Abordar en sesión la pregunta central: <strong>¿Qué los llevó a consumir o generar las conductas negativas?</strong>",
+          "Analizar las respuestas diferenciando factores externos (presión social, entorno) de factores internos (evasión, rabia, soledad, tristeza).",
+          "Dejar como <strong>tarea</strong> traer por escrito <strong>dos posibles alternativas saludables</strong> para mitigar cada razón de consumo identificada."
+        ],
+        meanings: "El consumo suele funcionar como un <strong>regulador emocional disfuncional</strong>; identificar su raíz permite reemplazarlo por conductas sanas.",
+        deliverables: "<strong>Tarea obligatoria:</strong> Lista de razones de consumo con 2 alternativas de mitigación por cada una.",
+        tips: [
+          "Ayuda a los usuarios a profundizar más allá de 'por curiosidad' o 'por malas juntas'; indaga qué sentían justo antes de consumir.",
+          "Anota en tu registro quiénes recibieron la tarea para calificarla en el Encuentro 9."
+        ]
+      },
+      {
+        id: 9,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Razones para Consumir (Trabajo con Alternativas)",
+        subtitle: "Revisión y validación terapéutica de la tarea en sesión",
+        tags: ["tarea"],
+        objective: "Evaluar la viabilidad de las estrategias propuestas por los usuarios y fortalecer su repertorio de respuestas saludables.",
+        activities: [
+          "Trabajar y socializar en sesión la <strong>tarea dejada en el Encuentro 8</strong> (las dos alternativas por cada razón de consumo).",
+          "Retroalimentar cada propuesta en grupo para perfeccionar aquellas que sean poco realistas o riesgosas."
+        ],
+        meanings: "Tener <strong>alternativas concretas</strong> ante un detonante emocional reduce la impulsividad y previene la recaída.",
+        deliverables: "Calificación y retroalimentación de la tarea del Encuentro 8.",
+        tips: [
+          "Si un usuario propone alternativas vagas ('portarme bien'), pídele acciones específicas ('llamar a mi mentor', 'hacer ejercicio', 'escribir en mi diario')."
+        ]
+      },
+      {
+        id: 10,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Fondos",
+        subtitle: "Relato de situaciones dolorosas límite vividas por el consumo",
+        tags: [],
+        objective: "Prevenir el olvido selectivo del sufrimiento ('euforia del recuerdo'), manteniendo presente la realidad cruda de adónde conduce la adicción.",
+        activities: [
+          "Pedir en sesión a cada usuario que detalle <strong>situaciones dolorosas y críticas</strong> que haya vivido a razón del consumo o conducta problema.",
+          "Facilitar un espacio de escucha profunda y validación grupal."
+        ],
+        meanings: "<strong>Tocar fondo</strong> es el punto de quiebre en el que el dolor de seguir igual supera el miedo a cambiar.",
+        deliverables: "Registro reflexivo en el diario terapéutico.",
+        tips: [
+          "Cierra la sesión con un mensaje reconstructivo: ese fondo ya quedó atrás y hoy están construyendo una historia nueva.",
+          "Observa posibles signos de angustia aguda para brindar seguimiento individual si es necesario."
+        ]
+      },
+      {
+        id: 11,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Motivos — Las 3 Preguntas Críticas",
+        subtitle: "Análisis honesto de intentos previos y tarea de 15 motivos de sobriedad",
+        tags: ["tarea"],
+        objective: "Confrontar las fallas de intentos anteriores y fundamentar con hechos por qué este proceso de restauración será diferente.",
+        activities: [
+          "Pedir al grupo que responda de manera <strong>detallada, justificada y con ejemplos</strong> en sesión estas 3 preguntas:<br>1. <em>¿Honestamente ha intentado suspender el consumo de drogas, alcohol o comportamientos inadecuados?</em><br>2. <em>¿Cuál fue el resultado de estos intentos?</em><br>3. <em>¿Por qué esta vez va a ser diferente?</em>",
+          "Dejar como <strong>tarea</strong> realizar una lista de <strong>15 motivos</strong> por los cuales vale la pena estar en sobriedad."
+        ],
+        meanings: "La <strong>motivación intrínseca</strong> surge cuando el paciente comprende qué falló antes (hacerlo solo, no cambiar de entorno) y qué acciones concretas está tomando hoy.",
+        deliverables: "<strong>Tarea obligatoria:</strong> Lista escrita de 15 motivos personales para vivir en sobriedad.",
+        tips: [
+          "En la pregunta 3, no aceptes respuestas genéricas como 'porque quiero cambiar'; pide evidencias de compromiso diario.",
+          "Recuérdales que los 15 motivos deben ser personales, profundos y significativos."
+        ]
+      },
+      {
+        id: 12,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Motivos — Socialización de los 15 Motivos",
+        subtitle: "Trabajo grupal con la lista de motivos para la sobriedad",
+        tags: ["tarea"],
+        objective: "Anclar emocionalmente las razones de vida del consultante para convertirlas en un escudo protector frente a la tentación.",
+        activities: [
+          "Revisar, socializar y trabajar en sesión la <strong>lista de 15 motivos</strong> elaborada como tarea en el Encuentro 11.",
+          "Identificar los 3 motivos más poderosos de cada usuario y analizar cómo protegerlos."
+        ],
+        meanings: "Quien tiene un <strong>para qué</strong> claro en sobriedad resiste cualquier impulso pasajero de consumo.",
+        deliverables: "Calificación de la lista de 15 motivos.",
+        tips: [
+          "Invita a los usuarios a pegar o copiar sus 15 motivos en la primera página de su diario terapéutico para releerlos en días difíciles."
+        ]
+      },
+      {
+        id: 13,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Lectura Literaria — Asignación y Guía (Plazo 15 días)",
+        subtitle: "El Principito, El Diario de Ana Frank o El Viejo y el Mar",
+        tags: ["tarea", "documento"],
+        objective: "Estimular la introspección, la empatía y la reflexión existencial a través de grandes obras de la literatura universal.",
+        activities: [
+          "Asignar a los usuarios una de las siguientes lecturas: <strong>El Principito</strong>, <strong>El Diario de Ana Frank</strong> o <strong>El Viejo y el Mar</strong>.",
+          "Utilizar el tiempo de la sesión para iniciar la lectura.",
+          "Dejar como <strong>tarea (entrega a 15 días)</strong> responder las 10 preguntas de autoconocimiento:<br>1. <em>¿Cómo soy como persona?</em><br>2. <em>¿Qué me hace feliz?</em><br>3. <em>¿Qué me pone triste?</em><br>4. <em>¿Qué me llama la atención de la vida?</em><br>5. <em>¿Quién deseo ser?</em><br>6. <em>¿Qué no me gusta hacer?</em><br>7. <em>¿Qué actitudes he asumido para integrarme a un grupo?</em><br>8. <em>¿Qué valores me inculcó mi familia?</em><br>9. <em>¿Cómo me comporto cuando tengo una discusión? / ¿Cómo solucionar un conflicto?</em><br>10. <em>¿Cuál es la felicidad que quiero alcanzar?</em>"
+        ],
+        meanings: "La <strong>biblioterapia</strong> permite dialogar con valores universales como la resiliencia (<em>El Viejo y el Mar</em>), la esperanza (<em>Ana Frank</em>) y lo esencial de los vínculos (<em>El Principito</em>).",
+        deliverables: "<strong>Tarea a 15 días:</strong> Cuestionario de 10 preguntas personales resuelto a partir de la lectura.",
+        tips: [
+          "Asegúrate de que todos copien exactamente las 10 preguntas del protocolo en su cuaderno.",
+          "Calcula la fecha exacta de entrega a los 15 días (Encuentro 15)."
+        ]
+      },
+      {
+        id: 14,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Lectura Literaria — Espacio de Lectura",
+        subtitle: "Acompañamiento lector en sesión",
+        tags: [],
+        objective: "Consolidar el hábito de la concentración, la lectura reflexiva y el avance ordenado en la tarea literaria.",
+        activities: [
+          "Destinar la sesión completa como un <strong>espacio protegido de lectura</strong> del libro asignado (<em>El Principito</em>, <em>El Diario de Ana Frank</em> o <em>El Viejo y el Mar</em>).",
+          "Acompañar individualmente a los usuarios mientras avanzan en el texto y estructuran sus respuestas."
+        ],
+        meanings: "El <strong>silencio productivo y la lectura</strong> entrenan la paciencia y la autorregulación cognitiva en personas acostumbradas a la gratificación inmediata.",
+        deliverables: "Avance verificado en lectura y borrador de preguntas.",
+        tips: [
+          "Acércate a los usuarios con menor hábito lector para ayudarles a comprender metáforas y evitar que se desmotiven."
+        ]
+      },
+      {
+        id: 15,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Lectura Literaria — Entrega y Retroalimentación",
+        subtitle: "Socialización de respuestas y proyecto interior",
+        tags: ["tarea"],
+        objective: "Integrar los valores descubiertos en la obra con el autoconocimiento y la resolución pacífica de conflictos del paciente.",
+        activities: [
+          "Recibir la <strong>entrega formal de la tarea</strong> cumplidos los 15 días.",
+          "Realizar una <strong>retroalimentación grupal</strong> donde cada consultante comparta sus reflexiones sobre las 10 preguntas (identidad, familia, manejo de discusiones y felicidad)."
+        ],
+        meanings: "Responder quién deseo ser y cómo soluciono conflictos conecta la reflexión literaria con la convivencia diaria en la fundación.",
+        deliverables: "Calificación del taller literario completo (10 preguntas).",
+        tips: [
+          "Presta especial atención a las respuestas sobre <em>cómo me comporto en una discusión</em> y <em>qué actitudes asumo para integrarme a un grupo</em>, pues revelan patrones de presión social."
+        ]
+      },
+      {
+        id: 16,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Frustraciones — Mapeo por Etapas de Vida",
+        subtitle: "5 mayores frustraciones en Niñez, Adolescencia y Adulto Joven",
+        tags: ["tarea"],
+        objective: "Reconocer cómo las frustraciones no resueltas a lo largo del desarrollo influyeron en la búsqueda de escape mediante el consumo.",
+        activities: [
+          "Pedir al consultante que describa sus <strong>5 mayores frustraciones por cada etapa de su vida</strong> (15 en total):<br>• <strong>Niñez</strong> (5 frustraciones)<br>• <strong>Adolescencia</strong> (5 frustraciones)<br>• <strong>Adulto joven</strong> (5 frustraciones)",
+          "Dejar como <strong>tarea</strong> elaborar por cada frustración identificada <strong>una estrategia concreta de afrontamiento y mejora</strong>."
+        ],
+        meanings: "La <strong>baja tolerancia a la frustración</strong> es uno de los principales detonantes de recaída; mapearla permite resignificar la historia sin victimismo.",
+        deliverables: "<strong>Tarea obligatoria:</strong> 15 estrategias de afrontamiento y mejora (una por cada frustración).",
+        tips: [
+          "Explica la diferencia entre sentir frustración (algo normal) y reaccionar con autodestrucción o agresividad ante ella.",
+          "Verifica que completen las 5 por cada etapa evolutiva."
+        ]
+      },
+      {
+        id: 17,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Frustraciones — Retroalimentación de Estrategias",
+        subtitle: "Revisión de estrategias de afrontamiento y mejora",
+        tags: ["tarea"],
+        objective: "Fortalecer la resiliencia convirtiendo cada frustración pasada o presente en un aprendizaje práctico de mejora.",
+        activities: [
+          "Iniciar la sesión <strong>retroalimentando a cada paciente</strong> sobre la tarea realizada de estrategias de afrontamiento y mejora.",
+          "Analizar en grupo cómo aplicar estas estrategias en situaciones cotidianas de estrés o desencanto."
+        ],
+        meanings: "La <strong>resiliencia</strong> no borra las frustraciones vividas, pero transforma la respuesta emocional frente a ellas.",
+        deliverables: "Calificación de la matriz de frustraciones y estrategias.",
+        tips: [
+          "Refuerza aquellas estrategias donde el paciente asume responsabilidad propia en lugar de esperar que los demás cambien."
+        ]
+      },
+      {
+        id: 18,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Disparadores Externos",
+        subtitle: "Documento 1A y Formularios 2A y 2B (Prevención de Recaídas)",
+        tags: ["documento"],
+        objective: "Identificar estímulos ambientales asociados al consumo (<em>craving</em>) y comprender que están dentro del control del usuario.",
+        activities: [
+          "Revisar el documento institucional <strong>'1A Disparadores'</strong>.",
+          "Pedir al usuario realizar una <strong>descripción detallada</strong> sobre lugares, olores, situaciones, cosas y personas que activan conductas de consumo.",
+          "Invitar al usuario a diligenciar los formularios <strong>2A y 2B (Cuestionario de Disparadores Externos)</strong> y discutirlos en grupo."
+        ],
+        meanings: "Con el tiempo, ciertas personas, lugares, cosas y olores se asocian mentalmente al consumo y provocan deseo intenso (<strong>craving</strong>). El terapeuta ayuda a entender que los disparadores externos están ligados al <strong>estilo de vida y decisiones propias</strong>, por lo que <u>están dentro de su control y se pueden cambiar</u>.",
+        deliverables: "Documentos y formularios: <strong>1A Disparadores</strong>, <strong>2A y 2B Cuestionario de Disparadores Externos</strong>.",
+        tips: [
+          "Enfatiza con firmeza la idea central del protocolo: los disparadores externos NO son inevitables; dependen de las decisiones y el estilo de vida que elijan.",
+          "Pide ejemplos sensoriales concretos (canciones, horas del día, dinero en el bolsillo, esquinas, olores)."
+        ]
+      },
+      {
+        id: 19,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Lucha Interna (Ambivalencia)",
+        subtitle: "Documento 4B Ambivalencia, balance decisional y habilidades para decir NO",
+        tags: ["tarea", "documento"],
+        objective: "Identificar y aceptar la ambivalencia frente al consumo, realizar un balance decisional objetivo y entrenar habilidades asertivas para decir que no.",
+        activities: [
+          "Trabajar el documento <strong>'4B AMBIVALENCIA'</strong>.",
+          "Retomando la sesión anterior, pedir a los jóvenes que describan cada una de las <strong>claves ambientales</strong> que les generan consumo o ansiedad a consumir.",
+          "Practicar el <strong>balance decisional</strong> y técnicas para decir 'no'.",
+          "Dejar como <strong>tarea</strong> traer <strong>dos soluciones por cada clave ambiental</strong> identificada."
+        ],
+        meanings: "La <strong>ambivalencia</strong> es la lucha interna natural entre el deseo de recuperarse y la atracción momentánea hacia la sustancia; aceptarla sin culpa permite manejarla racionalmente.",
+        deliverables: "Documento <strong>4B AMBIVALENCIA</strong> + <strong>Tarea:</strong> 2 soluciones prácticas por cada clave ambiental.",
+        tips: [
+          "Realiza un ejercicio breve de dramatización en pareja para que practiquen cómo decir 'NO' con postura firme, contacto visual y sin dar excusas largas."
+        ]
+      },
+      {
+        id: 20,
+        phase: 1,
+        phaseName: "Fase 1: Semillas",
+        title: "Retroalimentación de Notas (Cierre Fase 1)",
+        subtitle: "Entrega previa al terapeuta de escenario 2 y socialización con pacientes",
+        tags: ["evaluacion"],
+        objective: "Evaluar integralmente el desempeño y compromiso del usuario en la Fase Semillas antes de promoverlo a Consolidación.",
+        activities: [
+          "Consolidar las calificaciones de la Fase 1 según la rúbrica oficial:<br>• <strong>Asistencia:</strong> 1.0<br>• <strong>Tareas y entregables:</strong> 3.0<br>• <strong>Participación y disposición en las clases:</strong> 1.0",
+          "<strong>Obligatorio:</strong> Entregar la nota al <strong>terapeuta de escenario 2</strong> <em>antes</em> del encuentro pactado con los pacientes.",
+          "Socializar individualmente las notas y retroalimentar logros y aspectos a fortalecer."
+        ],
+        meanings: "La <strong>evaluación formativa</strong> valida el esfuerzo real del usuario y responsabiliza su avance dentro del proceso terapéutico.",
+        deliverables: "Planilla de notas Fase 1 (escala 0.0 a 5.0) entregada al terapeuta de escenario 2.",
+        tips: [
+          "No olvides entregar el consolidado al terapeuta de escenario 2 con anticipación.",
+          "Justifica cada nota con evidencias objetivas (asistencia, entrega puntual de tareas y calidad del diario terapéutico)."
+        ]
+      },
+
+      // ==================== FASE 2: CONSOLIDACIÓN (21 - 36) ====================
+      {
+        id: 21,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Presentación de Fase 2: Consolidación",
+        subtitle: "Encuadre de la segunda etapa y despeje de dudas",
+        tags: [],
+        objective: "Conocer a los pacientes que ingresan a Consolidación, explicar los objetivos de esta nueva etapa y despejar cualquier duda.",
+        activities: [
+          "Presentar al grupo de trabajo y dar la bienvenida a la <strong>Fase 2: Consolidación</strong>.",
+          "Explicar en qué consiste esta fase (profundización emocional, vínculos familiares, valores éticos y convivencia social).",
+          "Despejar todas las dudas e inquietudes que presenten los pacientes."
+        ],
+        meanings: "<strong>Consolidar</strong> significa afirmar las raíces sembradas en la Fase 1 mediante el dominio emocional y la reconstrucción de relaciones sanas.",
+        deliverables: "Acuerdos de participación y compromiso para la Fase 2.",
+        tips: [
+          "Reconoce el logro de haber avanzado a Fase 2 y recuerda que se mantiene la revisión continua de diarios terapéuticos y cuadros de logros."
+        ]
+      },
+      {
+        id: 22,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Emociones, Pensamientos, Comportamientos y Mapa de Red",
+        subtitle: "Documentos 7A y 7B + Word Mapa de Red Personal",
+        tags: ["documento"],
+        objective: "Comprender cómo los pensamientos y emociones impulsan conductas (y cómo controlarlos), y diagnosticar las redes de apoyo del usuario.",
+        activities: [
+          "Trabajar los documentos <strong>7A y 7B (Emociones, Pensamientos y Comportamientos)</strong>: observar patrones internos, prestar atención al <strong>lenguaje corporal y cambios físicos</strong>, e identificar qué emociones se conectan con el consumo para ejercer control sobre las respuestas.",
+          "Imprimir el Word llamado <strong>'Mapa de Red Personal'</strong> y ubicar los vínculos del paciente en <strong>4 categorías</strong> (<em>Familia, Amigos, Trabajo-Educación, Relaciones Comunitarias</em> como grupos recreativos, académicos o religiosos) y <strong>3 círculos concéntricos</strong>."
+        ],
+        meanings: "<strong>Áreas del Mapa de Red:</strong><br>• <strong>Círculo 1 (Relaciones íntimas):</strong> Relaciones más cercanas y de mayor confianza.<br>• <strong>Círculo 2 (Relaciones personales):</strong> Vínculos cotidianos sin un grado alto de compromiso.<br>• <strong>Círculo 3 (Conocidos y relaciones espontáneas):</strong> Relaciones más alejadas o circunstanciales.",
+        deliverables: "Documentos <strong>7A y 7B</strong> + Impresión y diligenciamiento del <strong>Word 'Mapa de Red Personal'</strong>.",
+        tips: [
+          "Revisa con cada paciente quiénes quedaron en su Círculo 1: si hay amistades de consumo en el círculo íntimo, deben reevaluar esa cercanía.",
+          "Entrena al grupo para detectar señales físicas tempranas (tensión mandibular, aceleración cardíaca, aislamiento) antes de actuar impulsivamente."
+        ]
+      },
+      {
+        id: 23,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Sociedad, Culpa y Vergüenza",
+        subtitle: "Conversatorio social y análisis del Documento 05 Culpa y Vergüenza",
+        tags: ["documento"],
+        objective: "Distinguir entre la culpa reparadora y la vergüenza tóxica, y analizar críticamente cómo perciben la sociedad actual.",
+        activities: [
+          "Realizar un <strong>conversatorio grupal</strong> en el que todos discutan sobre <strong>cómo creen que es la sociedad actual</strong>.",
+          "Estudiar y dialogar sobre el <strong>Documento 05 (CULPA Y VERGÜENZA)</strong>, diferenciando ambos conceptos en el proceso de recuperación."
+        ],
+        meanings: "• <strong>Culpa:</strong> Sentirse mal por lo que uno ha <em>hecho o dejado de hacer</em> (ej. romper una promesa). Es útil en recuperación porque indica que se actuó contra los propios valores y <strong>motiva a pedir perdón y reparar el daño</strong>.<br>• <strong>Vergüenza:</strong> Sentirse mal por <em>lo que uno es</em> (creer que no se es normal o digno). Es un <strong>impedimento para la abstinencia</strong> porque hace sentir al usuario indigno de recuperarse y le da excusa para seguir consumiendo.",
+        deliverables: "Documento institucional: <strong>05 CULPA Y VERGÜENZA</strong>.",
+        tips: [
+          "Este es uno de los conceptos clínicos más importantes del manual: asegúrate de que cada usuario sepa transformar la vergüenza ('soy malo') en culpa responsable ('cometí errores y hoy los reparo')."
+        ]
+      },
+      {
+        id: 24,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Sociedad — Construcción de Mural Ideal",
+        subtitle: "Mural colectivo sobre cómo debería ser la sociedad",
+        tags: [],
+        objective: "Pasar de la crítica social a la construcción propositiva de valores ciudadanos y convivencia saludable.",
+        activities: [
+          "Realizar un <strong>mural grupal</strong> en el que todos construyan cómo creen que <strong>debería ser la sociedad</strong>.",
+          "Retroalimentar el mural conectándolo con las reflexiones del conversatorio de la sesión anterior (Encuentro 23)."
+        ],
+        meanings: "Construir una <strong>sociedad ideal</strong> comienza por practicar esos mismos valores (respeto, empatía, solidaridad, justicia) dentro de la comunidad terapéutica.",
+        deliverables: "Mural grupal expuesto y retroalimentado en sesión.",
+        tips: [
+          "Lleva papel kraft, marcadores o revistas para recortar y fomenta que todos participen tanto en el diseño como en la explicación."
+        ]
+      },
+      {
+        id: 25,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Honestidad",
+        subtitle: "Documento 08: Consecuencias del engaño y beneficios de la verdad",
+        tags: ["documento"],
+        objective: "Comprender que, aunque la honestidad no siempre es fácil, es una parte integrante e irremplazable de una recuperación exitosa.",
+        activities: [
+          "Leer y analizar el <strong>Documento 08 (HONESTIDAD)</strong>.",
+          "Discutir en grupo las <strong>consecuencias destructivas</strong> de la mentira y la manipulación frente a los <strong>beneficios reales</strong> de decir siempre la verdad."
+        ],
+        meanings: "La <strong>honestidad radical</strong> elimina la doble vida propia de la adicción y reconstruye gradualmente la confianza perdida con la familia y el equipo terapéutico.",
+        deliverables: "Documento institucional: <strong>08 HONESTIDAD</strong>.",
+        tips: [
+          "Aborda las 'mentiras piadosas' o el ocultamiento de faltas cotidianas como puertas abiertas hacia la recaída."
+        ]
+      },
+      {
+        id: 26,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "De los Individuos a lo Social (Matriz y Tarea)",
+        subtitle: "Cuadro comparativo de capacidades vs. oportunidades y aporte social",
+        tags: ["tarea"],
+        objective: "Articular las capacidades personales con las oportunidades reales del entorno y asumir un rol ciudadano constructivo.",
+        activities: [
+          "<strong>1. En sesión:</strong> Realizar un <strong>cuadro comparativo</strong> entre <em>las capacidades que tengo</em> y <em>las oportunidades que me ofrece la sociedad</em>.",
+          "<strong>2. Tarea:</strong> Entregar un trabajo escrito para la siguiente sesión sobre <strong>qué tengo yo para aportar a la sociedad</strong>."
+        ],
+        meanings: "El <strong>protagonismo social</strong> supera la queja pasiva: el usuario reconoce sus talentos y asume qué valor puede entregar a su comunidad.",
+        deliverables: "Cuadro comparativo en sesión + <strong>Tarea escrita:</strong> ¿Qué tengo para aportar a la sociedad?",
+        tips: [
+          "Ayuda a los usuarios que creen 'no tener nada que aportar' a reconocer valores como la honradez, el trabajo duro, el ejemplo de superación y el servicio."
+        ]
+      },
+      {
+        id: 27,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "De los Individuos a lo Social (Retroalimentación)",
+        subtitle: "Socialización del aporte personal a la sociedad",
+        tags: ["tarea"],
+        objective: "Validar y fortalecer el sentido de utilidad, pertenencia y responsabilidad ciudadana de cada participante.",
+        activities: [
+          "Recibir y <strong>retroalimentar en sesión la tarea</strong> dejada en el Encuentro 26 sobre lo que cada uno tiene para aportar a la sociedad.",
+          "Conectar los aportes individuales con metas concretas de estudio, trabajo o voluntariado."
+        ],
+        meanings: "Sentirse útil y capaz de aportar positivamente protege la autoestima y consolida la identidad en sobriedad.",
+        deliverables: "Calificación y retroalimentación de la tarea del Encuentro 26.",
+        tips: [
+          "Destaca cómo cada historia de restauración puede convertirse en inspiración y apoyo para otros jóvenes."
+        ]
+      },
+      {
+        id: 28,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Investigación Cultural Urbano — Exposición",
+        subtitle: "Conocimiento de las diferentes tribus urbanas",
+        tags: [],
+        objective: "Ampliar la perspectiva cultural y social comprendiendo la diversidad de expresiones e identidades juveniles.",
+        activities: [
+          "Exponer a los pacientes las diferentes <strong>tribus urbanas</strong>, su historia, estética, música, códigos y formas de organización social.",
+          "Promover preguntas y diálogo respetuoso sobre la diversidad cultural."
+        ],
+        meanings: "Conocer las <strong>subculturas urbanas</strong> prepara el terreno para analizar cómo surgen los prejuicios y la intolerancia.",
+        deliverables: "Notas de observación en sesión.",
+        tips: [
+          "Prepara material visual atractivo que muestre tanto el origen cultural de cada tribu como sus expresiones artísticas."
+        ]
+      },
+      {
+        id: 29,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Investigación Cultural Urbano — Juego de Roles",
+        subtitle: "Interacción grupal desde los estereotipos asignados",
+        tags: [],
+        objective: "Hacer evidentes los prejuicios, etiquetas y juicios automáticos que solemos proyectar sobre grupos distintos a nosotros.",
+        activities: [
+          "Designar en el grupo diferentes roles de <strong>tribus urbanas</strong>.",
+          "Pedir a los participantes que interactúen entre sí conforme a <strong>cómo creen que es el estereotipo</strong> de la tribu asignada."
+        ],
+        meanings: "La <strong>dramatización de estereotipos</strong> saca a la luz creencias rígidas que muchas veces generan conflictos y exclusión.",
+        deliverables: "Registro de observaciones del equipo terapéutico sobre los mitos expresados.",
+        tips: [
+          "Toma nota cuidadosa de los estereotipos exagerados o discriminatorios que surjan durante el juego de roles; serán el insumo exacto para preparar el Encuentro 30."
+        ]
+      },
+      {
+        id: 30,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Rompiendo Estereotipos",
+        subtitle: "Deconstrucción de mitos y comprensión empática del otro",
+        tags: [],
+        objective: "Derribar los mitos y estereotipos observados en la sesión anterior, desarrollando empatía y comprensión genuina del otro.",
+        activities: [
+          "De acuerdo con lo observado en el Encuentro 29, los <strong>profesionales en formación traen material preparado</strong> para derribar esos mitos y estereotipos específicos.",
+          "Reflexionar grupalmente sobre el daño que causan las etiquetas y cómo practicar la comprensión del otro."
+        ],
+        meanings: "<strong>Romper estereotipos</strong> permite ver a la persona detrás de la apariencia y fomenta la tolerancia en la convivencia.",
+        deliverables: "Material pedagógico llevado por los psicólogos en formación + reflexión grupal.",
+        tips: [
+          "Conecta esta reflexión con su propia experiencia: pídeles que recuerden cómo se sintieron cuando la sociedad los etiquetó sin conocer su historia."
+        ]
+      },
+      {
+        id: 31,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Explorando Sentimientos — Escucha Activa y Carta",
+        subtitle: "Vinculaciones afectivas y tarea de carta positiva (1 a 3 personas)",
+        tags: ["tarea"],
+        objective: "Explorar las vinculaciones afectivas profundas del paciente en un espacio seguro y promover la expresión sana de gratitud.",
+        activities: [
+          "Facilitar un espacio de exploración afectiva donde los profesionales en formación brindan <strong>únicamente escucha activa</strong> (sin interrumpir, juzgar ni aconsejar en exceso).",
+          "Dejar como <strong>tarea</strong> escribir una carta <strong>(SOLO POSITIVA)</strong> dirigida a <strong>1 o máximo 3 personas importantes</strong> en la vida de los pacientes que quieran con todo el corazón."
+        ],
+        meanings: "La <strong>escucha activa</strong> valida la emoción del consultante; la <strong>carta positiva</strong> enfoca el vínculo en el amor, la admiración y la gratitud, dejando de lado el reclamo.",
+        deliverables: "<strong>Tarea obligatoria:</strong> Carta exclusivamente positiva dirigida a 1–3 seres queridos.",
+        tips: [
+          "Enfatiza dos reglas de la tarea: (1) Máximo 3 personas; (2) Contenido 100% positivo, de amor y gratitud, sin reproches ni justificaciones."
+        ]
+      },
+      {
+        id: 32,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Explorando Sentimientos — Silla Vacía (Parte I)",
+        subtitle: "Lectura de cartas mediante técnica gestáltica y gratitud",
+        tags: ["tarea"],
+        objective: "Facilitar la expresión emocional profunda y el reconocimiento afectivo hacia las figuras significativas del paciente.",
+        activities: [
+          "Retomar la tarea dejada en el Encuentro 31 escuchando las cartas de los pacientes mediante la <strong>técnica de la silla vacía</strong>.",
+          "Reforzar/asignar la redacción de carta mostrando <strong>admiración y gratitud</strong> hacia 1 a 3 personas queridas."
+        ],
+        meanings: "La <strong>técnica de la silla vacía</strong> permite al paciente hablarle simbólicamente de frente a su ser querido, desbloqueando emociones reprimidas.",
+        deliverables: "Lectura vivencial de cartas en sesión.",
+        tips: [
+          "Coloca una silla frente al paciente, pídele que imagine allí a su familiar o ser querido y que le lea la carta mirándola directamente.",
+          "Sostén el respeto y el silencio emocional del grupo durante cada lectura."
+        ]
+      },
+      {
+        id: 33,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Explorando Sentimientos — Silla Vacía (Parte II)",
+        subtitle: "Continuación de escucha de cartas y cierre afectivo grupal",
+        tags: [],
+        objective: "Garantizar que todos los integrantes del grupo completen el ejercicio de expresión de admiración y gratitud mediante la silla vacía.",
+        activities: [
+          "Continuar escuchando las cartas de los pacientes restantes utilizando la <strong>técnica de la silla vacía</strong>.",
+          "Realizar un cierre grupal integrador sobre la importancia de expresar afecto en vida y en sobriedad."
+        ],
+        meanings: "Expresar <strong>admiración y gratitud</strong> fortalece los lazos familiares que sostendrán al paciente durante y después de su proceso.",
+        deliverables: "Cartas listas para ser entregadas posteriormente a sus familiares (se retoma en Encuentro 37).",
+        tips: [
+          "Cuida los tiempos para que quienes lean en esta segunda jornada reciban la misma calidad de escucha y contención que los primeros."
+        ]
+      },
+      {
+        id: 34,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Sexualidad",
+        subtitle: "Conversatorio con preguntas prediseñadas para hablar sin miedo",
+        tags: [],
+        objective: "Promover un diálogo maduro, respetuoso y libre de tabúes sobre la sexualidad, el autocuidado y la afectividad.",
+        activities: [
+          "Los profesionales en formación dirigen un <strong>conversatorio con preguntas prediseñadas</strong> que invitan a hablar de la sexualidad sin miedo, vergüenza ni prejuicios.",
+          "Aclarar mitos y reforzar conductas de respeto y responsabilidad afectiva."
+        ],
+        meanings: "Hablar de <strong>sexualidad sin miedo</strong> desactiva tabúes, previene conductas de riesgo y vincula la intimidad con el respeto propio y hacia la pareja.",
+        deliverables: "Guía de preguntas prediseñadas elaborada por los psicólogos en formación.",
+        tips: [
+          "Usa una caja o bolsa con tarjetas de preguntas prediseñadas para que los usuarios las saquen al azar; esto reduce la timidez inicial."
+        ]
+      },
+      {
+        id: 35,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Familia",
+        subtitle: "Constitución familiar, gustos y características de cada miembro",
+        tags: [],
+        objective: "Reconocer la estructura y particularidades de cada núcleo familiar para preparar una convivencia armónica y empática.",
+        activities: [
+          "Dialogar en sesión sobre <strong>cómo están constituidas</strong> cada una de las familias de los pacientes.",
+          "Describir los <strong>gustos, personalidad y características</strong> de cada uno de los integrantes de su familia."
+        ],
+        meanings: "Conocer los gustos y características de cada familiar demuestra atención afectiva genuina y ayuda a identificar redes protectoras en el hogar.",
+        deliverables: "Mapa o descripción familiar en el diario terapéutico.",
+        tips: [
+          "Fomenta que los usuarios valoren las diferencias de carácter dentro de su hogar sin intentar imponer sus propios tiempos."
+        ]
+      },
+      {
+        id: 36,
+        phase: 2,
+        phaseName: "Fase 2: Consolidación",
+        title: "Retroalimentación de Notas (Cierre Fase 2)",
+        subtitle: "Entrega al terapeuta de escenario 2 y socialización de calificaciones",
+        tags: ["evaluacion"],
+        objective: "Evaluar los avances emocionales, vinculares y éticos de la Fase 2 antes de iniciar la etapa final de Proyección.",
+        activities: [
+          "Calcular las notas de la Fase 2:<br>• <strong>Asistencia:</strong> 1.0<br>• <strong>Tareas y entregables:</strong> 3.0<br>• <strong>Participación y disposición en las clases:</strong> 1.0",
+          "Entregar la nota al <strong>terapeuta de escenario 2</strong> y socializar los resultados con cada paciente."
+        ],
+        meanings: "La retroalimentación de cierre consolida la madurez emocional alcanzada antes de enfrentar los retos de proyección externa.",
+        deliverables: "Planilla de notas Fase 2 entregada al terapeuta de escenario 2.",
+        tips: [
+          "Resalta en cada paciente su evolución en honestidad, expresión de sentimientos y participación grupal."
+        ]
+      },
+
+      // ==================== FASE 3: PROYECCIÓN (37 - 44) ====================
+      {
+        id: 37,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Presentación de Fase 3 y Entrega de Cartas a Familiares",
+        subtitle: "Encuadre final y socialización de reacciones familiares",
+        tags: [],
+        objective: "Preparar al grupo para la última etapa del tratamiento y procesar emocionalmente el impacto de entregar las cartas a sus familias.",
+        activities: [
+          "Conocer a los pacientes, explicar en qué consiste la <strong>Fase 3: Proyección</strong> y despejar todas sus dudas.",
+          "Conversar en grupo sobre las <strong>reacciones, sentimientos y acciones</strong> reflejadas en la entrega de las cartas a sus familiares."
+        ],
+        meanings: "La <strong>Proyección</strong> es el puente entre la comunidad terapéutica y la vida en sociedad; procesar la respuesta familiar afianza el vínculo de apoyo.",
+        deliverables: "Registro emocional en el diario sobre el encuentro con la familia.",
+        tips: [
+          "Acompaña tanto a quienes vivieron abrazos y lágrimas de reconciliación como a quienes encontraron cautela familiar, recordándoles que la confianza se reconstruye con hechos diarios."
+        ]
+      },
+      {
+        id: 38,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Árbol de la Vida",
+        subtitle: "Manualidad simbólica de 7 elementos y entrega al familiar",
+        tags: ["tarea"],
+        objective: "Integrar simbólicamente la identidad, los valores, los logros, las metas, la red de apoyo y los riesgos a eliminar antes del egreso.",
+        activities: [
+          "Dejar como tarea realizar artesanalmente un <strong>Árbol de la Vida</strong> con las siguientes 7 especificaciones:<br>• <strong>Raíces:</strong> ¿Cuál es mi origen?<br>• <strong>Tallo:</strong> ¿Qué me sostiene en la vida?<br>• <strong>Ramas:</strong> ¿Qué metas tengo o a qué aspiro?<br>• <strong>Flores:</strong> ¿Qué cosas bonitas tengo para dar?<br>• <strong>Frutos:</strong> ¿Cuáles han sido mis logros?<br>• <strong>Pajaritos:</strong> ¿Qué personas importantes hay en mi vida?<br>• <strong>Parásitos:</strong> ¿Cosas de las que debo desprenderme?",
+          "Invitar al paciente a describir en sesión <strong>cómo se sintió al realizar la manualidad</strong> y <strong>cuando entregó el trabajo a su familiar</strong>."
+        ],
+        meanings: "El <strong>Árbol de la Vida</strong> sintetiza toda la restauración: honra las raíces, fortalece el tallo de valores, proyecta ramas hacia el futuro y limpia los <em>parásitos</em> (malos hábitos, rencores o amistades nocivas).",
+        deliverables: "<strong>Tarea creativa:</strong> Manualidad del Árbol de la Vida (7 partes) + entrega simbólica al familiar.",
+        tips: [
+          "Revisa con especial cuidado los 'Parásitos' que cada usuario identifique: asegúrate de que tengan claro cómo alejarse de ellos afuera.",
+          "Valora el esfuerzo manual y creativo como expresión de dedicación hacia su familia."
+        ]
+      },
+      {
+        id: 39,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Tips para Presentar una Entrevista Laboral",
+        subtitle: "Vestimenta, lenguaje verbal/no verbal y comportamiento profesional",
+        tags: [],
+        objective: "Brindar herramientas prácticas de empleabilidad para que el usuario se presente con seguridad, respeto y profesionalismo al mundo laboral.",
+        activities: [
+          "Capacitar al grupo sobre los aspectos clave de una entrevista de trabajo:<br>• <strong>Qué ropa debo usar:</strong> Higiene, presentación personal y vestimenta acorde al cargo.<br>• <strong>Qué lenguaje debo utilizar:</strong> Comunicación clara, respetuosa y asertiva, evitando jergas.<br>• <strong>Cómo comportarse:</strong> Puntualidad, saludo, postura corporal, contacto visual y escucha activa."
+        ],
+        meanings: "La <strong>reinserción laboral digna</strong> brinda autonomía económica, estructura horaria y propósito de vida en sobriedad.",
+        deliverables: "Guía práctica de entrevista laboral anotada en su cuaderno.",
+        tips: [
+          "Realiza un simulacro rápido de entrevista de 3 minutos por participante para practicar el saludo, la postura y cómo hablar de sus fortalezas."
+        ]
+      },
+      {
+        id: 40,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Test de Fortalezas (Círculo de la Palabra)",
+        subtitle: "Perspectiva de los compañeros sobre fortalezas y cosas por mejorar",
+        tags: [],
+        objective: "Consolidar una autoestima realista mediante la retroalimentación honesta y fraterna de los compañeros de convivencia.",
+        activities: [
+          "Conformar un <strong>círculo de la palabra</strong> donde los compañeros expresan por medio del diálogo su perspectiva sobre el proceso del joven.",
+          "Cada intervención debe señalar tanto las <strong>fortalezas consolidadas</strong> como las <strong>cosas por mejorar</strong>."
+        ],
+        meanings: "El <strong>Círculo de la Palabra</strong> funciona como un espejo comunitario respetuoso donde el grupo valida el crecimiento y advierte con afecto los puntos ciegos.",
+        deliverables: "Registro personal de fortalezas y alertas preventivas recibidas del grupo.",
+        tips: [
+          "Modera el círculo asegurando que cada crítica constructiva ('cosa por mejorar') se diga con respeto, sin humillar y acompañada de una fortaleza real."
+        ]
+      },
+      {
+        id: 41,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Día a Día",
+        subtitle: "Documento 31: Evitar el agobio del pasado y centrarse en el presente",
+        tags: ["documento"],
+        objective: "Aprender a evitar sentimientos de agobio relacionados con el pasado y construir estrategias prácticas para centrarse en el presente.",
+        activities: [
+          "Estudiar y analizar el documento institucional <strong>'31 DÍA A DÍA'</strong>.",
+          "Diseñar estrategias cotidianas para manejar la ansiedad anticipatoria y mantener la mente enfocada en las decisiones saludables de hoy."
+        ],
+        meanings: "La filosofía del <strong>Día a Día ('Solo por hoy')</strong> libera al usuario tanto de la culpa paralizante del ayer como de la ansiedad por el futuro, concentrando toda su fuerza en vivir sobrio hoy.",
+        deliverables: "Documento institucional: <strong>31 DÍA A DÍA</strong>.",
+        tips: [
+          "Ayuda a cada usuario a diseñar un horario básico de autocuidado para aplicar día a día una vez egrese."
+        ]
+      },
+      {
+        id: 42,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Psicología Vocacional",
+        subtitle: "Fortalezas, revisión de grados con psicólogo tutor y mentoría externa",
+        tags: [],
+        objective: "Estructurar un plan educativo, ocupacional o vocacional realista para la vida fuera de la institución.",
+        activities: [
+          "Hablar individual y grupalmente con el paciente sobre sus <strong>fortalezas y aspectos a mejorar</strong>.",
+          "Revisar junto con el <strong>psicólogo tutor</strong> los <strong>grados académicos</strong> de los pacientes para desarrollar la mejor <strong>mentoría para una vida fuera de la institución</strong>."
+        ],
+        meanings: "La <strong>orientación vocacional</strong> alinea las capacidades reales y el nivel académico del usuario con oportunidades concretas de estudio o trabajo afuera.",
+        deliverables: "Ruta de mentoría vocacional articulada con el psicólogo tutor.",
+        tips: [
+          "Coordina previamente con el psicólogo tutor el historial escolar de cada usuario para ofrecer opciones viables (validación de bachillerato, formación técnica o emprendimiento)."
+        ]
+      },
+      {
+        id: 43,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Diagnóstico y Notas",
+        subtitle: "Revisión de avances y falencias + entrega de notas al terapeuta de escenario 2",
+        tags: ["evaluacion"],
+        objective: "Realizar el balance clínico final del tratamiento y socializar las calificaciones de cierre.",
+        activities: [
+          "Revisar integralmente los <strong>avances y falencias</strong> del tratamiento llevado con cada paciente.",
+          "Entregar la nota al <strong>terapeuta de escenario 2</strong> y socializar las calificaciones con los pacientes:<br>• <strong>Asistencia:</strong> 1.0<br>• <strong>Tareas y entregables:</strong> 3.0<br>• <strong>Participación y disposición en las clases:</strong> 1.0"
+        ],
+        meanings: "El <strong>diagnóstico de cierre</strong> permite que el paciente egrese consciente tanto de sus herramientas conquistadas como de las áreas donde debe mantener vigilancia.",
+        deliverables: "Informe de avances/falencias y planilla final de notas (escala 0.0 a 5.0) al terapeuta de escenario 2.",
+        tips: [
+          "Sé transparente y objetivo al señalar las falencias pendientes; una advertencia clara a tiempo puede prevenir una recaída futura."
+        ]
+      },
+      {
+        id: 44,
+        phase: 3,
+        phaseName: "Fase 3: Proyección",
+        title: "Despedida",
+        subtitle: "Momento emotivo de culminación del proceso en Hombres de Valor",
+        tags: [],
+        objective: "Honrar el esfuerzo, la transformación personal y la culminación exitosa del proceso terapéutico grupal.",
+        activities: [
+          "Brindar un <strong>momento emotivo de culminación</strong> de todo el proceso en la institución <strong>Hombres de Valor</strong>.",
+          "Facilitar palabras de cierre del equipo terapéutico, de los compañeros y del egresado."
+        ],
+        meanings: "Los <strong>rituales de cierre</strong> marcan simbólicamente el fin de una etapa y el nacimiento de un hombre restaurado, digno y comprometido con su vida.",
+        deliverables: "Ceremonia / encuentro emotivo de culminación institucional.",
+        tips: [
+          "Prepara un cierre solemne y cálido que recuerde el camino recorrido desde el Encuentro 1 (Semillas) hasta este Encuentro 44 (Proyección)."
+        ]
+      }
+    ];
+
+    // Metadatos descriptivos de cada fase
+    const PHASE_INFO = {
+      all: {
+        badge: "Programa Completo • 44 Encuentros",
+        title: "Las 3 Fases del Proceso Terapéutico Grupal",
+        desc: "Haz clic en cualquier sesión para desplegar su objetivo, desarrollo paso a paso, significados clave, documentos y consejos clínicos."
+      },
+      1: {
+        badge: "Fase 1 • Encuentros 1 al 20",
+        title: "Fase 1: Semillas — Despertar de Conciencia y Prevención",
+        desc: "Enfocada en el encuadre grupal, identidad, aceptación, cine foro, pérdidas, razones de consumo, frustraciones, disparadores externos (1A, 2A, 2B) y ambivalencia (4B)."
+      },
+      2: {
+        badge: "Fase 2 • Encuentros 21 al 36",
+        title: "Fase 2: Consolidación — Regulación Emocional y Vínculos",
+        desc: "Enfocada en pensamientos y emociones (7A, 7B), Mapa de Red Personal, culpa vs. vergüenza (05), honestidad (08), tribus urbanas, silla vacía, sexualidad y familia."
+      },
+      3: {
+        badge: "Fase 3 • Encuentros 37 al 44",
+        title: "Fase 3: Proyección — Proyecto de Vida y Reinserción",
+        desc: "Enfocada en la entrega de cartas familiares, Árbol de la Vida, entrevista laboral, círculo de fortalezas, estrategia Día a Día (31), psicología vocacional y despedida."
+      }
+    };
+
+    // Estado de la aplicación
+    let currentPhase = "all";
+    let currentTag = "all";
+    let searchQuery = "";
+    let modalSessionId = null;
+    let completedSessions = new Set(JSON.parse(localStorage.getItem("hdv_completed_sessions") || "[]"));
+
+    // Elementos del DOM
+    const sessionsContainer = document.getElementById("sessionsContainer");
+    const emptyState = document.getElementById("emptyState");
+    const visibleCountEl = document.getElementById("visibleCount");
+    const progressCountEl = document.getElementById("progressCount");
+    const progressBarEl = document.getElementById("progressBar");
+    const searchInput = document.getElementById("searchInput");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+    // Guardar progreso en localStorage
+    function saveProgress() {
+      localStorage.setItem("hdv_completed_sessions", JSON.stringify([...completedSessions]));
+      updateProgressUI();
+    }
+
+    function updateProgressUI() {
+      const count = completedSessions.size;
+      progressCountEl.textContent = count;
+      const pct = Math.round((count / SESSIONS_DATA.length) * 100);
+      progressBarEl.style.width = `${pct}%`;
+    }
+
+    // Colores según fase
+    function getPhaseStyles(phase) {
+      if (phase === 1) {
+        return {
+          badgeBg: "bg-emerald-100 text-emerald-800 border-emerald-200",
+          numBg: "bg-emerald-700 text-white",
+          accentBorder: "border-l-emerald-600",
+          accentText: "text-emerald-700"
+        };
+      }
+      if (phase === 2) {
+        return {
+          badgeBg: "bg-blue-100 text-blue-800 border-blue-200",
+          numBg: "bg-blue-700 text-white",
+          accentBorder: "border-l-blue-600",
+          accentText: "text-blue-700"
+        };
+      }
+      return {
+        badgeBg: "bg-orange-100 text-orange-800 border-orange-200",
+        numBg: "bg-orange-700 text-white",
+        accentBorder: "border-l-orange-600",
+        accentText: "text-orange-700"
+      };
+    }
+
+    // Renderizar etiquetas de tipo
+    function renderTagBadges(tags) {
+      return tags.map(tag => {
+        if (tag === "tarea") {
+          return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200"><i class="fa-solid fa-pen-to-square"></i> Tarea</span>`;
+        }
+        if (tag === "documento") {
+          return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-indigo-100 text-indigo-900 border border-indigo-200"><i class="fa-solid fa-file-lines"></i> Doc/Formato</span>`;
+        }
+        if (tag === "evaluacion") {
+          return `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-rose-100 text-rose-900 border border-rose-200"><i class="fa-solid fa-clipboard-check"></i> Notas/Eval</span>`;
+        }
+        return "";
+      }).join("");
+    }
+
+    // Generar HTML interno del detalle de cada sesión
+    function buildSessionDetailHTML(session) {
+      const tipsHTML = session.tips.map(t => `<li class="flex items-start gap-2"><i class="fa-solid fa-lightbulb text-amber-500 mt-1 shrink-0 text-xs"></i><span>${t}</span></li>`).join("");
+      const activitiesHTML = session.activities.map(a => `<li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-forest-600 mt-2 shrink-0"></span><span>${a}</span></li>`).join("");
+
+      return `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Bloque 1: Qué se busca -->
+          <div class="bg-forest-50/90 border border-forest-100 rounded-xl p-4">
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-forest-700 flex items-center gap-2 mb-2">
+              <i class="fa-solid fa-bullseye"></i> ¿Qué se busca? (Objetivo Terapéutico)
+            </h4>
+            <p class="text-sm text-stone-800 leading-relaxed">${session.objective}</p>
+          </div>
+
+          <!-- Bloque 2: Significados Clave -->
+          <div class="bg-sand-100/90 border border-sand-200 rounded-xl p-4">
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-700 flex items-center gap-2 mb-2">
+              <i class="fa-solid fa-brain text-indigo-600"></i> Significados y Conceptos Clave
+            </h4>
+            <p class="text-sm text-stone-800 leading-relaxed">${session.meanings}</p>
+          </div>
+        </div>
+
+        <!-- Bloque 3: Qué toca hacer en sesión -->
+        <div class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5">
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-800 flex items-center gap-2 mb-3">
+            <i class="fa-solid fa-list-check text-forest-700"></i> ¿Qué toca hacer? (Desarrollo Paso a Paso en Sesión)
+          </h4>
+          <ul class="space-y-2.5 text-sm text-stone-700 leading-relaxed">
+            ${activitiesHTML}
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Bloque 4: Documentos, Formatos y Entregables -->
+          <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-4">
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-indigo-900 flex items-center gap-2 mb-2">
+              <i class="fa-solid fa-folder-open"></i> Documentos, Formatos y Tareas
+            </h4>
+            <p class="text-sm text-stone-800 leading-relaxed">${session.deliverables}</p>
+          </div>
+
+          <!-- Bloque 5: Consejos para el Facilitador -->
+          <div class="bg-amber-50/80 border border-amber-200/80 rounded-xl p-4">
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-amber-900 flex items-center gap-2 mb-2">
+              <i class="fa-solid fa-user-doctor"></i> Consejos para el Terapeuta / Psicólogo en Formación
+            </h4>
+            <ul class="space-y-1.5 text-sm text-stone-800 leading-relaxed">
+              ${tipsHTML}
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+
+    // Filtrar y renderizar tarjetas
+    function renderSessions() {
+      const query = searchQuery.trim().toLowerCase();
+
+      const filtered = SESSIONS_DATA.filter(s => {
+        const matchesPhase = currentPhase === "all" || String(s.phase) === currentPhase;
+        const matchesTag = currentTag === "all" || s.tags.includes(currentTag);
+        const matchesSearch = !query ||
+          String(s.id) === query ||
+          `sesion ${s.id}`.includes(query) ||
+          `sesión ${s.id}`.includes(query) ||
+          `encuentro ${s.id}`.includes(query) ||
+          s.title.toLowerCase().includes(query) ||
+          s.subtitle.toLowerCase().includes(query) ||
+          s.objective.toLowerCase().includes(query) ||
+          s.meanings.toLowerCase().includes(query) ||
+          s.deliverables.toLowerCase().includes(query) ||
+          s.activities.some(a => a.toLowerCase().includes(query));
+
+        return matchesPhase && matchesTag && matchesSearch;
+      });
+
+      visibleCountEl.textContent = `${filtered.length} ${filtered.length === 1 ? "sesión" : "sesiones"}`;
+
+      if (filtered.length === 0) {
+        sessionsContainer.innerHTML = "";
+        emptyState.classList.remove("hidden");
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+
+      sessionsContainer.innerHTML = filtered.map(session => {
+        const styles = getPhaseStyles(session.phase);
+        const isChecked = completedSessions.has(session.id);
+
+        return `
+          <article
+            id="session-card-${session.id}"
+            class="session-card bg-white border border-stone-200 border-l-4 ${styles.accentBorder} rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden"
+          >
+            <!-- Cabecera Clickeable para Desplegar -->
+            <div class="flex items-stretch">
+              <button
+                type="button"
+                onclick="toggleSession(${session.id})"
+                class="flex-1 px-4 sm:px-6 py-4 flex items-center justify-between gap-4 text-left hover:bg-sand-50/70 transition-colors focus:outline-none"
+                aria-expanded="false"
+                aria-controls="session-body-${session.id}"
+              >
+                <div class="flex items-start sm:items-center gap-3.5 sm:gap-4 min-w-0">
+                  <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${styles.numBg} flex flex-col items-center justify-center shrink-0 shadow-sm">
+                    <span class="text-[9px] uppercase font-bold tracking-wider opacity-85 leading-none">Sesión</span>
+                    <span class="text-base sm:text-lg font-extrabold leading-tight">${session.id}</span>
+                  </div>
+
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap mb-1">
+                      <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${styles.badgeBg}">
+                        ${session.phaseName}
+                      </span>
+                      ${renderTagBadges(session.tags)}
+                    </div>
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-stone-900 leading-snug">
+                      Encuentro ${session.id}: ${session.title}
+                    </h3>
+                    <p class="text-xs sm:text-sm text-stone-500 truncate mt-0.5">
+                      ${session.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2.5 shrink-0">
+                  <span class="hidden md:inline-flex items-center gap-1.5 text-xs font-bold ${styles.accentText} bg-sand-100 px-3 py-1.5 rounded-lg">
+                    <span>Ver contenido</span>
+                    <i class="fa-solid fa-chevron-down chevron-icon text-[11px]"></i>
+                  </span>
+                  <span class="md:hidden w-8 h-8 rounded-lg bg-sand-100 flex items-center justify-center text-stone-600">
+                    <i class="fa-solid fa-chevron-down chevron-icon text-xs"></i>
+                  </span>
+                </div>
+              </button>
+
+              <!-- Botón de Marcar como Revisada -->
+              <div class="border-l border-stone-100 px-3 sm:px-4 flex items-center justify-center bg-stone-50/50">
+                <button
+                  type="button"
+                  onclick="toggleCompleted(${session.id}, event)"
+                  title="${isChecked ? 'Marcar como pendiente' : 'Marcar sesión como revisada'}"
+                  class="w-9 h-9 rounded-xl border flex items-center justify-center transition-all ${
+                    isChecked
+                      ? 'bg-emerald-600 border-emerald-600 text-white shadow-sm'
+                      : 'bg-white border-stone-300 text-stone-300 hover:border-emerald-500 hover:text-emerald-600'
+                  }"
+                >
+                  <i class="fa-solid fa-check text-sm"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Contenido Desplegable -->
+            <div id="session-body-${session.id}" class="accordion-content">
+              <div class="accordion-inner">
+                <div class="px-4 sm:px-6 pb-6 pt-3 border-t border-stone-100 bg-stone-50/40 space-y-4">
+                  ${buildSessionDetailHTML(session)}
+
+                  <!-- Barra Inferior de la Ficha Desplegada -->
+                  <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-stone-200/70">
+                    <span class="text-xs text-stone-500">
+                      <i class="fa-solid fa-book-open text-forest-700 mr-1"></i> Recuerda revisar los diarios terapéuticos al iniciar.
+                    </span>
+                    <button
+                      type="button"
+                      onclick="openFocusModal(${session.id})"
+                      class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-forest-900 text-white hover:bg-forest-800 transition-colors"
+                    >
+                      <i class="fa-solid fa-expand"></i> Abrir en Modo Ficha Completa
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    // Desplegar / Contraer una sesión individual
+    window.toggleSession = function(id) {
+      const card = document.getElementById(`session-card-${id}`);
+      const body = document.getElementById(`session-body-${id}`);
+      if (!card || !body) return;
+
+      const isOpen = body.classList.contains("open");
+      if (isOpen) {
+        body.classList.remove("open");
+        card.classList.remove("is-open");
+        card.querySelector("button[aria-expanded]").setAttribute("aria-expanded", "false");
+      } else {
+        body.classList.add("open");
+        card.classList.add("is-open");
+        card.querySelector("button[aria-expanded]").setAttribute("aria-expanded", "true");
+      }
+    };
+
+    // Marcar sesión como revisada
+    window.toggleCompleted = function(id, event) {
+      event.stopPropagation();
+      if (completedSessions.has(id)) {
+        completedSessions.delete(id);
+      } else {
+        completedSessions.add(id);
+      }
+      saveProgress();
+      renderSessions();
+    };
+
+    // Abrir Modal de Ficha Completa
+    window.openFocusModal = function(id) {
+      const session = SESSIONS_DATA.find(s => s.id === id);
+      if (!session) return;
+      modalSessionId = id;
+
+      const modal = document.getElementById("focusModal");
+      const modalHeader = document.getElementById("modalHeader");
+      const modalPhaseTag = document.getElementById("modalPhaseTag");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+      const modalCounter = document.getElementById("modalCounter");
+      const modalPrevBtn = document.getElementById("modalPrevBtn");
+      const modalNextBtn = document.getElementById("modalNextBtn");
+
+      modalHeader.className = `px-6 py-4 text-white flex items-center justify-between gap-4 ${
+        session.phase === 1 ? "bg-emerald-900" : session.phase === 2 ? "bg-blue-950" : "bg-stone-900"
+      }`;
+      modalPhaseTag.textContent = session.phaseName;
+      modalTitle.textContent = `Encuentro ${session.id}: ${session.title}`;
+      modalBody.innerHTML = buildSessionDetailHTML(session);
+      modalCounter.textContent = `Encuentro ${session.id} de 44`;
+
+      modalPrevBtn.disabled = id <= 1;
+      modalPrevBtn.classList.toggle("opacity-40", id <= 1);
+      modalNextBtn.disabled = id >= 44;
+      modalNextBtn.classList.toggle("opacity-40", id >= 44);
+
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    };
+
+    function closeFocusModal() {
+      document.getElementById("focusModal").classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    // Eventos de Pestañas de Fase
+    document.querySelectorAll(".phase-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".phase-tab").forEach(b => {
+          b.classList.remove("active", "bg-forest-900", "text-white", "shadow-sm");
+          b.classList.add("bg-stone-100", "text-stone-700");
+        });
+        btn.classList.add("active", "bg-forest-900", "text-white", "shadow-sm");
+        btn.classList.remove("bg-stone-100", "text-stone-700");
+
+        currentPhase = btn.dataset.phase;
+        const info = PHASE_INFO[currentPhase];
+        document.getElementById("phaseBannerBadge").textContent = info.badge;
+        document.getElementById("phaseBannerTitle").textContent = info.title;
+        document.getElementById("phaseBannerDesc").innerHTML = info.desc;
+
+        renderSessions();
+      });
+    });
+
+    // Eventos de Filtros por Etiqueta
+    document.querySelectorAll(".tag-filter").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tag-filter").forEach(b => {
+          b.classList.remove("active", "bg-stone-800", "text-white");
+          b.classList.add("bg-stone-100", "text-stone-600");
+        });
+        btn.classList.add("active", "bg-stone-800", "text-white");
+        btn.classList.remove("bg-stone-100", "text-stone-600");
+
+        currentTag = btn.dataset.tag;
+        renderSessions();
+      });
+    });
+
+    // Buscador
+    searchInput.addEventListener("input", e => {
+      searchQuery = e.target.value;
+      clearSearchBtn.classList.toggle("hidden", !searchQuery);
+      renderSessions();
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      searchQuery = "";
+      searchInput.value = "";
+      clearSearchBtn.classList.add("hidden");
+      renderSessions();
+    });
+
+    // Botón Resetear Filtros
+    document.getElementById("resetFiltersBtn").addEventListener("click", () => {
+      currentPhase = "all";
+      currentTag = "all";
+      searchQuery = "";
+      searchInput.value = "";
+      clearSearchBtn.classList.add("hidden");
+
+      document.querySelectorAll(".phase-tab").forEach(b => {
+        const isAll = b.dataset.phase === "all";
+        b.classList.toggle("active", isAll);
+        b.classList.toggle("bg-forest-900", isAll);
+        b.classList.toggle("text-white", isAll);
+        b.classList.toggle("bg-stone-100", !isAll);
+        b.classList.toggle("text-stone-700", !isAll);
+      });
+
+      document.querySelectorAll(".tag-filter").forEach(b => {
+        const isAll = b.dataset.tag === "all";
+        b.classList.toggle("active", isAll);
+        b.classList.toggle("bg-stone-800", isAll);
+        b.classList.toggle("text-white", isAll);
+        b.classList.toggle("bg-stone-100", !isAll);
+        b.classList.toggle("text-stone-600", !isAll);
+      });
+
+      const info = PHASE_INFO.all;
+      document.getElementById("phaseBannerBadge").textContent = info.badge;
+      document.getElementById("phaseBannerTitle").textContent = info.title;
+      document.getElementById("phaseBannerDesc").innerHTML = info.desc;
+
+      renderSessions();
+    });
+
+    // Expandir / Contraer todas las tarjetas visibles
+    document.getElementById("expandAllBtn").addEventListener("click", () => {
+      document.querySelectorAll(".session-card").forEach(card => {
+        card.classList.add("is-open");
+        const body = card.querySelector(".accordion-content");
+        if (body) body.classList.add("open");
+        const btn = card.querySelector("button[aria-expanded]");
+        if (btn) btn.setAttribute("aria-expanded", "true");
+      });
+    });
+
+    document.getElementById("collapseAllBtn").addEventListener("click", () => {
+      document.querySelectorAll(".session-card").forEach(card => {
+        card.classList.remove("is-open");
+        const body = card.querySelector(".accordion-content");
+        if (body) body.classList.remove("open");
+        const btn = card.querySelector("button[aria-expanded]");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Acordeón de Lineamientos Generales
+    const toggleGuidelinesBtn = document.getElementById("toggleGuidelinesBtn");
+    const guidelinesPanel = document.getElementById("guidelinesPanel");
+    const guidelinesChevron = document.getElementById("guidelinesChevron");
+    const guidelinesBtnText = document.getElementById("guidelinesBtnText");
+
+    toggleGuidelinesBtn.addEventListener("click", () => {
+      const isOpen = guidelinesPanel.classList.toggle("open");
+      toggleGuidelinesBtn.setAttribute("aria-expanded", String(isOpen));
+      guidelinesChevron.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+      guidelinesBtnText.textContent = isOpen ? "Ocultar normativa" : "Ver normativa";
+    });
+
+    // Navegación del Modal
+    document.getElementById("closeModalBtn").addEventListener("click", closeFocusModal);
+    document.getElementById("focusModal").addEventListener("click", e => {
+      if (e.target.id === "focusModal") closeFocusModal();
+    });
+    document.getElementById("modalPrevBtn").addEventListener("click", () => {
+      if (modalSessionId > 1) openFocusModal(modalSessionId - 1);
+    });
+    document.getElementById("modalNextBtn").addEventListener("click", () => {
+      if (modalSessionId < 44) openFocusModal(modalSessionId + 1);
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeFocusModal();
+    });
+
+    // Inicialización
+    updateProgressUI();
+    renderSessions();
+    // Abrir la Sesión 1 por defecto como muestra interactiva inmediata
+    toggleSession(1);
+  </script>
+</body>
+</html>
